@@ -28,12 +28,14 @@ client.registry
 	.registerDefaultTypes()
 	.registerGroups([
 		['standard', 'Standard Commands'],
-        ['admin', 'Mod and Admin Commands'],
-        ['extra', 'Extra Commands'],
+		['admin', 'Mod and Admin Commands'],
+		['extra', 'Extra Commands'],
+		['annoy', 'Annoying Commands'],
+		['nsfw', 'NSFW Commands'],
 	])
 	.registerDefaultGroups()
-    .registerDefaultCommands()
-    //.registerDefaultCommands({unknownCommand: false})
+    //.registerDefaultCommands()
+    .registerDefaultCommands({unknownCommand: false})
 	.registerCommandsIn(path.join(__dirname, 'commands'));
 
 //On ready messages and startup
@@ -70,9 +72,9 @@ client.on('commandRun', async (command, promise, message, args) =>{;
 		.setColor('#ff4800')
 		.setTitle(`${message.author.tag} ran a command`)
 		.addFields(
-			{ name: 'Command', value: command.name },
+			{ name: 'Command', value: `${message.guild.commandPrefix}${command.name}` },
 			{ name: 'Args', value: argsList},
-			{ name: 'Guild', value:  `${message.guild.name}(${message.guild.id})`},
+			{ name: 'Guild', value:  `${message.guild.name} (${message.guild.id})`},
 		)
 		.setTimestamp()
 	client.guilds.cache.get('747587696867672126').channels.cache.get('747587927261052969').send(feedbackEmbed)
@@ -80,7 +82,13 @@ client.on('commandRun', async (command, promise, message, args) =>{;
 
 //Runs when a message is sent by anyone
 client.on('message', async message => {
-	
+	let commandCollection = client.registry.commands
+	if (message.author.bot) return;
+	let botspeech = commandCollection.get('botspeech')
+	let botreply = commandCollection.get('botreply')
+	if (botreply.isEnabledIn(message.guild) && message.channel.nsfw && message.mentions.has(client.user)){botreply.run(message)}
+	if (botspeech.isEnabledIn(message.guild) && message.channel.nsfw){botspeech.run(message, 'nsfw')}
+	if(botspeech.isEnabledIn(message.guild) && !message.channel.nsfw) {botspeech.run(message, 'safe')}
 })
 
 //Once all is setup it logs on the bot.

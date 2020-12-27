@@ -4,6 +4,7 @@
   "description": "NSFW discordbot by Acelib25 | TheAceProgrammer",
   "main": "bot.js",
   "dependencies": {
+    "canvas": "^2.6.1",
     "discord.js": "^12.5.1",
     "discord.js-commando": "git+https://github.com/discordjs/Commando.git",
     "pm2": "^4.5.1",

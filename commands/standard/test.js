@@ -9,7 +9,7 @@ module.exports = class TestCommand extends Command {
             guildOnly: true,
             description: 'test command',
             usage: 'test',
-            
+            hidden: true,
         })
     }
 	run(message) {
