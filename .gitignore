@@ -1,6 +1,11 @@
 node_modules
 config.json
-serverList.txt
+database.sqlite
 settings.sqlite
-.vscode/launch.json
-.vscode/settings.json
+serverList.txt
+log.txt
+Voice.mp3
+audio.mp3
+teach.js
+.vs
+.vscode
