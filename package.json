@@ -1,0 +1,30 @@
+{
+  "name": "acesnsfwbot",
+  "version": "1.0.0",
+  "description": "NSFW discordbot by Acelib25 | TheAceProgrammer",
+  "main": "bot.js",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "discord.js-commando": "git+https://github.com/discordjs/Commando.git",
+    "pm2": "^4.5.1",
+    "sqlite": "^4.0.18",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Acelib25/Aces-NSFW-Bot.git"
+  },
+  "keywords": [
+    "NSFW"
+  ],
+  "author": "Acelib25 | TheAceProgrammer",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Acelib25/Aces-NSFW-Bot/issues"
+  },
+  "homepage": "https://github.com/Acelib25/Aces-NSFW-Bot#readme"
+}

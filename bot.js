@@ -28,7 +28,8 @@ client.registry
 	.registerDefaultTypes()
 	.registerGroups([
 		['standard', 'Standard Commands'],
-		['admin', 'Mod and Admin Commands']
+        ['admin', 'Mod and Admin Commands'],
+        ['extra', 'Extra Commands'],
 	])
 	.registerDefaultGroups()
     .registerDefaultCommands()
@@ -50,6 +51,7 @@ client.once('ready', async () => {
     });
 });
 
+
 //Runs on Command Error
 client.on('commandError', (cmd, error) => {
 	console.error(`Oopsies, ${cmd} did a fuckywucky :(\n\n`)
@@ -60,7 +62,7 @@ client.on('commandError', (cmd, error) => {
 client.on('commandRun', async (command, promise, message, args) =>{; 
 	let argsKey = Object.keys(args)
 	let argsValue = Object.values(args)
-	let argsList = []
+	let argsList = ['[None: None]']
 	for(let i = 0; i < argsKey.length; i++){
 		argsList.push(`[${argsKey[i]}: ${argsValue[i]}]`)
 	}
